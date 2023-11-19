@@ -264,7 +264,9 @@ h6 {
 }
 
 .card .user {
-  width: 100px;
+  width: 100%;
+  max-width: 100%;
+  height: auto; /* Isso garante que a altura seja ajustada proporcionalmente à largura */
   margin-bottom: 15px;
 }
 
