@@ -55,15 +55,12 @@ body * {
 }
 #profile img {
   width: 112px;
-  
 }
 
 #profile p {
   font-weight: 500;
   line-height: 24px;
   padding: 8px;
-  
-  
 }
 
 /*swith*/
@@ -200,31 +197,16 @@ footer {
   }
 }
 
-
-
-
 :root {
-  --gradient-shadow: linear-gradient(
-    45deg,
-   
-    #0000ff,
-   
-    #ff0000,
-   
-    #0000ff,
-   
-    #ff0000
-  );
-  
+  --gradient-shadow: linear-gradient(45deg, #0000ff, #ffbb00, #0000ff, #ffbb00);
 }
 .cores {
   margin: 0;
   padding: 0;
-  
+
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .shadow {
   border-radius: 50px;
