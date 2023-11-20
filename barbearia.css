@@ -42,6 +42,22 @@ nav li {
   text-align: center;
 }
 
+.voltar-button {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  background-color: #ffffff; /* Cor de fundo do botão */
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  color: #ffffff; /* Cor do texto do botão */
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+
 nav a:hover {
   /*change behavior when the mouse be above*/
   color: #990011;
