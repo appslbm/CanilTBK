@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
- <style>
+  <style>
         /* Estilos para o modal */
         .modal {
             display: none;
@@ -39,10 +39,14 @@
         .close {
             position: absolute;
             top: 10px;
-            right: 5px;
+            right: 10px;
             font-size: 20px;
             cursor: pointer;
-            color: #000000; /* Adicionei uma cor ao ícone para melhor visibilidade */
+            color: red; /* Altere a cor desejada aqui */
+        }
+
+        .card {
+            position: relative;
         }
     </style>
 </head>
@@ -193,7 +197,7 @@ No Titanium Bully Kennel, dedicamo-nos apaixonadamente a criar e cuidar de Ameri
                 
    <div id="myModal" class="modal">
         <div class="modal-content">
-            
+             <span class="close" onclick="closeModal()">&times;</span>
             <!-- Conteúdo expandido do card aqui -->
         </div>
     </div>
@@ -222,39 +226,34 @@ No Titanium Bully Kennel, dedicamo-nos apaixonadamente a criar e cuidar de Ameri
         &
           Bruno Marques. 2023</p> 
     </footer>
+ <script>
+        function openModal(event) {
+            const modal = document.getElementById('myModal');
+            const modalContent = modal.querySelector('.modal-content');
+            const card = event.currentTarget;
+            const index = card.getAttribute('data-index');
+            const cardContent = card.innerHTML;
 
-</body>
-<script>
-    // Função para abrir o modal com o conteúdo do card clicado
-    function openModal(event) {
-        const modal = document.getElementById('myModal');
-        const modalContent = modal.querySelector('.modal-content');
-        const card = event.currentTarget;
-        const index = card.getAttribute('data-index');
-        const cardContent = card.innerHTML;
-
-        modalContent.innerHTML = cardContent;
-        modal.style.display = 'flex';
-    }
-
-    // Função para fechar o modal
-    function closeModal() {
-        document.getElementById('myModal').style.display = 'none';
-    }
-
-    // Adicionar um evento de clique a todos os cards
-    document.querySelectorAll('.open-modal').forEach(function (card) {
-        card.addEventListener('click', openModal);
-    });
-
-    // Adicionar um evento de clique ao botão de fechar no modal
-    document.querySelector('.modal-content .close').addEventListener('click', closeModal);
-
-    // Adicionar um evento de clique ao botão de fechar dentro do modal
-    document.querySelector('.modal').addEventListener('click', function (event) {
-        if (event.target.classList.contains('modal')) {
-            closeModal();
+            modalContent.innerHTML = cardContent;
+            modal.style.display = 'flex';
         }
-    });
-</script>
+
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+
+        document.querySelectorAll('.open-modal').forEach(function (card) {
+            card.addEventListener('click', openModal);
+        });
+
+        document.querySelector('.modal-content .close').addEventListener('click', closeModal);
+
+        document.querySelector('.modal').addEventListener('click', function (event) {
+            if (event.target.classList.contains('modal')) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+
 </html>
