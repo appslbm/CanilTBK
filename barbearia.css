@@ -18,6 +18,10 @@ header {
   width: 15em;
 }
 
+h1 {
+  text-align: center;
+}
+
 body {
   font-family: "Open Sans", sans-serif; /*Font txt*/
   margin: 0;
@@ -35,6 +39,7 @@ nav li {
 }
 .sublogo {
   text-shadow: 10px 10px 10px #000000;
+  text-align: center;
 }
 
 nav a:hover {
