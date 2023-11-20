@@ -11,6 +11,40 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+ <style>
+        /* Estilos para o modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1;
+        }
+
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            overflow: auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 5px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #000000; /* Adicionei uma cor ao ícone para melhor visibilidade */
+        }
+    </style>
 </head>
 
 <body>
@@ -97,58 +131,73 @@ No Titanium Bully Kennel, dedicamo-nos apaixonadamente a criar e cuidar de Ameri
             </div>
             <h5>Algumas entregas dos nossos filhotes</h5>
             <section class="cards">
-            <div class="card">
-                <img class="user" src="./img/cliente.jpeg">
-                
-            </div>
-                <div class="card">
-                <img class="user" src="./img/cliente1.jpeg">
-                </div>
-                 <div class="card">
-                <img class="user" src="./img/cliente2.jpeg">
-                
-            </div>
-            <div class="card">
-                <img class="user" src="./img/cliente3.jpeg">
-               
-            </div>
-                <div class="card">
-                <img class="user" src="./img/cliente4.jpeg">
-                </div>
-                 <div class="card">
-                <img class="user" src="./img/cliente5.jpeg">
-            </div>
+           <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+  
+</div>
+                <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente1.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+               <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente2.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+           <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente3.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+              <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente4.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+             <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente5.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
 
-            <div class="card">
-                <img class="user" src="./img/cliente6.jpeg">
-                
-            </div>
-                <div class="card">
-                <img class="user" src="./img/cliente7.jpeg">
-                </div>
-                 <div class="card">
-                <img class="user" src="./img/cliente8.jpeg">
-                
-            </div>
-            <div class="card">
-                <img class="user" src="./img/cliente9.jpeg">
-               
-            </div>
-                <div class="card">
-                <img class="user" src="./img/cliente10.jpeg">
-                </div>
-                 <div class="card">
-                <img class="user" src="./img/cliente11.jpeg">
-            </div>
+          <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente6.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+             <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente7.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+              <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente8.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+           <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente9.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+              <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente10.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+            <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente11.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
 
-                <div class="card">
-                <img class="user" src="./img/cliente12.jpeg">
-                </div>
-                 <div class="card">
-                <img class="user" src="./img/cliente13.jpeg">
+              <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente12.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
+                <div class="card open-modal" data-index="1">
+  <img class="user" src="./img/cliente13.jpeg">
+  <span class="close" onclick="closeModal()">&times;</span>
+</div>
                 
-            </div>
-           
+   <div id="myModal" class="modal">
+        <div class="modal-content">
+            
+            <!-- Conteúdo expandido do card aqui -->
+        </div>
+    </div>
+
 
            </section>
         <br>
@@ -173,6 +222,38 @@ No Titanium Bully Kennel, dedicamo-nos apaixonadamente a criar e cuidar de Ameri
         &
           Bruno Marques. 2023</p> 
     </footer>
+<script>
+    // Função para abrir o modal com o conteúdo do card clicado
+    function openModal(event) {
+        const modal = document.getElementById('myModal');
+        const modalContent = modal.querySelector('.modal-content');
+        const card = event.currentTarget;
+        const index = card.getAttribute('data-index');
+        const cardContent = card.innerHTML;
 
+        modalContent.innerHTML = cardContent;
+        modal.style.display = 'flex';
+    }
+
+    // Função para fechar o modal
+    function closeModal() {
+        document.getElementById('myModal').style.display = 'none';
+    }
+
+    // Adicionar um evento de clique a todos os cards
+    document.querySelectorAll('.open-modal').forEach(function (card) {
+        card.addEventListener('click', openModal);
+    });
+
+    // Adicionar um evento de clique ao botão de fechar no modal
+    document.querySelector('.modal-content .close').addEventListener('click', closeModal);
+
+    // Adicionar um evento de clique ao botão de fechar dentro do modal
+    document.querySelector('.modal').addEventListener('click', function (event) {
+        if (event.target.classList.contains('modal')) {
+            closeModal();
+        }
+    });
+</script>
 </body>
 </html>

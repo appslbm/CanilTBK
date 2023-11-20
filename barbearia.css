@@ -56,8 +56,6 @@ nav li {
   cursor: pointer;
 }
 
-
-
 nav a:hover {
   /*change behavior when the mouse be above*/
   color: #990011;
@@ -221,7 +219,7 @@ h2 {
 }
 
 .benefits li:before {
-  content: "👍";
+  content: "...";
 }
 
 .benefits li:first-child {
@@ -243,7 +241,10 @@ h5 {
 h6 {
   font-size: 16px;
 }
-
+.close {
+  color: #fff; /* Adicionei uma cor ao ícone para melhor visibilidade */
+  z-index: 2; /* Certifique-se de que o ícone esteja acima do conteúdo do modal */
+}
 .cards {
   display: flex;
   overflow-x: scroll;
